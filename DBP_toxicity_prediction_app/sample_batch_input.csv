@@ -1,0 +1,3 @@
+SMILES,Endpoint,Cell
+O=C1C=CC(=O)C(Cl)=C1,Cytotoxicity,CHO
+NC(=O)C(Br)Br,Developmental,Zebra fish
