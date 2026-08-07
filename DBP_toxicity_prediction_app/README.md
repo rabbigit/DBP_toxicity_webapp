@@ -1,18 +1,16 @@
-# Chemical Toxicity Predictor — Professional Interface v2
+# DBP Toxicity Predictor
 
-This project trains a LightGBM regression model using selected 2D Mordred descriptors plus encoded toxicity endpoint and cell/test-system variables. It provides a professionally styled Streamlit interface for single and batch predictions and reports maximum Morgan–Tanimoto similarity to the unique training chemicals.
+This project trains a LightGBM regression model using Mordred descriptors plus toxicity endpoint and cell/test-system variables. It provides an interface for single and batch predictions and reports maximum Morgan–Tanimoto similarity to the unique training chemicals.
 
 ## Prediction workflow
 
 1. Validate the submitted SMILES with RDKit.
 2. Convert it to canonical SMILES.
-3. Calculate the 48 selected 2D Mordred descriptors.
+3. Calculate the Mordred descriptors.
 4. Encode the selected Endpoint and Cell values.
 5. Arrange all 50 features in the exact training order.
 6. Generate a prediction with the saved LightGBM model.
-7. Calculate a Morgan fingerprint with radius 2 and 2,048 bits.
-8. Report maximum Tanimoto similarity to all unique training chemicals.
-9. Flag descriptors outside their individual training ranges in detailed diagnostics.
+7. Report the maximum Tanimoto similarity to all unique training chemicals.
 
 ## Encodings
 
@@ -26,14 +24,14 @@ This project trains a LightGBM regression model using selected 2D Mordred descri
 | --- | ---: |
 | CHO | 0 |
 | Hep G2 | 1 |
-| Zebra fish | 2 |
+| Zebrafish | 2 |
 
 ## Install with Anaconda Prompt
 
 Open Anaconda Prompt inside this project folder and run these commands one at a time:
 
 ```text
-conda create -n toxicity-webapp python=3.12 -y
+conda create -n toxicity-webapp python=3.11 -y
 conda activate toxicity-webapp
 pip install -r requirements.txt
 ```
@@ -70,7 +68,7 @@ packages.txt
 model/toxicity_model.joblib
 ```
 
-Create a Streamlit Community Cloud app using `app.py` as the main file and Python 3.12 as the runtime.
+Create a Streamlit Community Cloud app using `app.py` as the main file and Python 3.11 as the runtime.
 
 ## Batch-input format
 
@@ -83,11 +81,8 @@ O=C1C=CC(=O)C(Cl)=C1,Cytotoxicity,CHO
 
 ## Important scientific notes
 
-- The application reports the target as `Value` because no scientific unit or transformed-target label was specified.
-- Maximum similarity is reported numerically without assigning an inside/outside label or applying a threshold.
+- The application reports the target as `Value`.
 - Similarity uses Morgan fingerprints (radius 2, 2,048 bits) and the Tanimoto coefficient.
-- The supplied training and test datasets contain overlapping chemicals and some identical model inputs. This may make the reported test performance optimistic for genuinely unseen chemicals.
-- Before journal publication, document the target definition and unit, final validation design, applicability domain, uncertainty, citation, authorship, and model version.
 
 ## Project structure
 
