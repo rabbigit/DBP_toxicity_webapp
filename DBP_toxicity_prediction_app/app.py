@@ -1,4 +1,4 @@
-"""Professional Streamlit interface for chemical toxicity prediction."""
+"""Streamlit interface for chemical toxicity prediction."""
 
 from pathlib import Path
 
@@ -113,13 +113,13 @@ st.markdown(
         text-transform: uppercase;
     }
     .section-title {
-        color: #16324F;
+        color: #000000 !important;
         font-size: 1.25rem;
         font-weight: 750;
         margin: 0.25rem 0 0.25rem 0;
     }
     .section-copy {
-        color: #5A6E7F;
+        color: #000000 !important;
         margin-bottom: 1.1rem;
     }
     div[data-testid="stMetric"] {
@@ -130,11 +130,11 @@ st.markdown(
         box-shadow: 0 8px 24px rgba(22,50,79,0.07);
     }
     div[data-testid="stMetricLabel"] p {
-        color: #587080;
+        color: #000000 !important;
         font-weight: 650;
     }
     div[data-testid="stMetricValue"] {
-        color: #0F766E;
+        color: #000000 !important;
     }
     div[data-testid="stForm"] {
         background: rgba(255,255,255,0.92);
@@ -160,6 +160,7 @@ st.markdown(
         padding-left: 1rem;
         padding-right: 1rem;
         font-weight: 650;
+        color: #000000 !important;
     }
     .method-note {
         background: #E8F4F3;
