@@ -130,6 +130,7 @@ st.markdown(
         box-shadow: 0 8px 24px rgba(22,50,79,0.07);
     }
     div[data-testid="stMetricLabel"],
+    div[data-testid="stMetricLabel"] *,
     div[data-testid="stMetricLabel"] p,
     div[data-testid="stMetricLabel"] span {
         color: #0F766E !important;
