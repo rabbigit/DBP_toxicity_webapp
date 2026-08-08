@@ -20,7 +20,7 @@ PROJECT_DIR = Path(__file__).resolve().parent
 MODEL_PATH = PROJECT_DIR / "model" / "toxicity_model.joblib"
 
 st.set_page_config(
-    page_title="Chemical Toxicity Predictor",
+    page_title="DBP Toxicity Predictor",
     page_icon="🧪",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -132,12 +132,12 @@ st.markdown(
     div[data-testid="stMetricLabel"],
     div[data-testid="stMetricLabel"] p,
     div[data-testid="stMetricLabel"] span {
-        color: #0F766E;
-        opacity: #0F766E;
+        color: #0F766E !important;
+        opacity: 1 !important;
         font-weight: 650;
     }
     div[data-testid="stMetricValue"] {
-        color: #0F766E;
+        color: #0F766E !important;
     }
     div[data-testid="stForm"] {
         background: rgba(255,255,255,0.92);
