@@ -132,8 +132,8 @@ st.markdown(
     div[data-testid="stMetricLabel"],
     div[data-testid="stMetricLabel"] p,
     div[data-testid="stMetricLabel"] span {
-        color: #000000 !important;
-        opacity: 1 !important;
+        color: #0F766E;
+        opacity: #0F766E;
         font-weight: 650;
     }
     div[data-testid="stMetricValue"] {
@@ -166,15 +166,15 @@ st.markdown(
     }
     .stTabs [data-baseweb="tab"] p,
     .stTabs [data-baseweb="tab"] span {
-        color: #000000 !important;
-        opacity: 1 !important;
+        color: #0F766E;
+        opacity: #0F766E;
     }
     .stTabs [data-baseweb="tab"][aria-selected="true"] p,
     .stTabs [data-baseweb="tab"][aria-selected="true"] span,
     .stTabs [data-baseweb="tab"]:hover p,
     .stTabs [data-baseweb="tab"]:hover span {
-        color: #0F766E !important;
-        opacity: 1 !important;
+        color: #0F766E;
+        opacity: #0F766E;
     }
     .method-note {
         background: #E8F4F3;
@@ -210,7 +210,7 @@ st.markdown(
     """
     <div class="hero">
         <div class="eyebrow">Machine learning · Molecular descriptors</div>
-        <h1>Multi-Endpoint Chemical Toxicity Predictor</h1>
+        <h1>Multi-Endpoint DBP Toxicity Predictor</h1>
         <p>
             Predict a toxicity value from molecular structure, endpoint, and cell/test
             system using selected Mordred descriptors and a LightGBM regression model.
@@ -290,7 +290,7 @@ with prediction_tab:
                     """
                     <div class="method-note">
                         Similarity is the maximum Tanimoto coefficient between the
-                        submitted molecule and all unique training compounds using
+                        submitted molecule and all training compounds using
                         Morgan fingerprints (radius 2, 2,048 bits).
                     </div>
                     """,
@@ -406,8 +406,8 @@ with batch_tab:
 with information_tab:
     st.markdown('<div class="section-title">Model performance</div>', unsafe_allow_html=True)
     metric_col1, metric_col2, metric_col3, metric_col4 = st.columns(4)
-    metric_col1.metric("Test R²", f"{metrics['r2']:.3f}")
-    metric_col2.metric("Test RMSE", f"{metrics['rmse']:.3f}")
+    metric_col1.metric("Test R²", f"{metrics['r2']:.2f}")
+    metric_col2.metric("Test RMSE", f"{metrics['rmse']:.2f}")
     metric_col3.metric("Training rows", f"{metrics['training_rows']:,}")
     metric_col4.metric("Test rows", f"{metrics['test_rows']:,}")
 
@@ -434,16 +434,13 @@ with information_tab:
         st.dataframe(cell_table, hide_index=True, width="stretch")
 
     st.info(
-        "The target is displayed as `Value` because its scientific definition and "
-        "unit have not yet been added to the application. The supplied training and "
-        "test sets contain overlapping chemicals; consult the model card before "
-        "using the reported test performance in a publication."
+        "The target is displayed as `Value`"
     )
 
 st.markdown(
     """
     <div class="footer">
-        Chemical Toxicity Predictor · LightGBM + Mordred + RDKit · Research use only
+        DBP Toxicity Predictor · LightGBM + Mordred + RDKit
     </div>
     """,
     unsafe_allow_html=True,
