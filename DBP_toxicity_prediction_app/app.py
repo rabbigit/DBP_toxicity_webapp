@@ -269,8 +269,8 @@ st.markdown(
 
 with st.sidebar:
     st.markdown("## Model snapshot")
-    render_metric_card("Test R²", f"{metrics['r2']:.3f}")
-    render_metric_card("Test RMSE", f"{metrics['rmse']:.3f}")
+    render_metric_card("Test R²", f"{metrics['r2']:.2f}")
+    render_metric_card("Test RMSE", f"{metrics['rmse']:.2f}")
     st.markdown("---")
     st.markdown("**Training records**")
     st.write(f"{metrics['training_rows']:,}")
@@ -341,7 +341,8 @@ with prediction_tab:
                     <div class="method-note">
                         Similarity is the maximum Tanimoto coefficient between the
                         submitted molecule and all unique training compounds using
-                        Morgan fingerprints (radius 2, 2,048 bits).
+                        Morgan fingerprints (radius 2, 2,048 bits). If the similarity
+                        value is 1, it indicates the DBP is present in the training data. 
                     </div>
                     """,
                     unsafe_allow_html=True,
