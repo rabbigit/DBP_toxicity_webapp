@@ -1,0 +1,12 @@
+setuptools==83.0.0
+streamlit==1.61.1
+pandas==2.2.3
+numpy==1.26.4
+scipy==1.15.3
+scikit-learn==1.6.1
+lightgbm==4.7.0
+rdkit==2024.9.6
+mordred==1.2.0
+networkx==2.8.8
+joblib==1.5.3
+requests==2.32.5
